@@ -37,7 +37,7 @@ extension RCTScrollView {
     /**
      Swizzled implementation of ```init(swizzleEventDispatcher:)```
     */
-    @objc dynamic fileprivate convenience init(swizzleEventDispatcher: RCTEventDispatcher) {
+    @objc dynamic fileprivate convenience init(swizzleEventDispatcher: RCTEventDispatcherProtocol) {
         // call original implementation
         self.init(swizzleEventDispatcher: swizzleEventDispatcher)
 

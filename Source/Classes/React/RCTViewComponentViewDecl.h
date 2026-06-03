@@ -4,11 +4,19 @@
 //
 //  Created by Kabbi Kumar on 25/05/26.
 //
-//  - .mm files  (ObjC++): __cplusplus defined -> real RCTViewComponentView header
-//  - Bridging header / Swift (ObjC): __cplusplus undefined -> forward declaration only
+//  WHY THIS FILE EXISTS
+//  ────────────────────
+//  RCTViewComponentView.h transitively includes C++ Fabric headers
+//  (react/renderer/...). Swift cannot parse C++ — importing the real header
+//  in the bridging header causes a build failure.
 //
-//  RCTViewComponentView IS a UIView subclass, so the declaration is
-//  compatible at runtime.
+//  This file acts as a firewall:
+//    __cplusplus defined (.mm files)  → import the real header; full API available
+//    __cplusplus undefined (Swift)    → see only a plain ObjC declaration; no C++
+//
+//  The #else declaration is intentionally minimal — only the properties Swift
+//  actually needs are declared. At runtime both paths resolve to the same class,
+//  so there is no ABI mismatch.
 //
  #import <UIKit/UIKit.h>
    

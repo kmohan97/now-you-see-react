@@ -13,5 +13,6 @@
 #import <React/RCTScrollViewComponentView.h>
 #else
 @interface RCTScrollViewComponentView : UIView
+@property (nonatomic, readonly) UIScrollView *scrollView;
 @end
 #endif

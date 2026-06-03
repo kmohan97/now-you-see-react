@@ -41,7 +41,6 @@ extension RCTScrollViewComponentView {
          so that children are tracked on scroll.
          Mirrors what RCTScrollView+Swizzle does for Paper's RCTScrollView.
         */
-        let scrollView = value(forKey: "scrollView") as? UIScrollView
-        scrollView?.trackView()
+        scrollView.trackView()
     }
 }

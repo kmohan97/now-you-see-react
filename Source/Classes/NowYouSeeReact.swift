@@ -28,7 +28,7 @@ extension NowYou {
         _ = swizzleRCTScrollViewForTracking
         
         // Fabric
-        _ = swizzleRCTViewComponentViewForTracking
+        // _ = swizzleRCTViewComponentViewForTracking
         _ = swizzleRCTScrollViewComponentViewForTracking
 
         #if DEBUG
